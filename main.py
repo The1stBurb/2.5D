@@ -44,17 +44,17 @@ class blok:
     def __init__(self,sz):
         self.sz=sz
         self.szDisp=0.75
-block=blok(20)
+block=blok(80)
 tops=[pb.imgGit("images\\tops\\grass.png",block.sz,block.sz),pb.imgGit("images\\tops\\stone_path.png",block.sz,block.sz),pb.imgGit("images\\tops\\water.png",block.sz,block.sz),]
 walls=[pb.imgGit("images\\walls\\dirt.png",block.sz,block.sz*block.szDisp),]
-blank=pb.imgGit("images\\blank.png",block.sz,block.sz),
+blank=pb.imgGit("images\\blank.png",block.sz,block.sz)
 shift=[tops[0],walls[0],tops[1],blank,tops[2],blank,blank,blank]
-while True:
-    scrn.fill((200,200,200))
-    # mbt=1
-    for i in pygame.event.get():
-        if i.type == pygame.QUIT:
-            # print(clickclack)
-            quit()
-    pb.image(blank,0,0)
-    pygame.display.flip()
+# while True:
+#     scrn.fill((200,200,200))
+#     # mbt=1
+#     for i in pygame.event.get():
+#         if i.type == pygame.QUIT:
+#             # print(clickclack)
+#             quit()
+#     pb.image(shift[0],0,0)
+#     pygame.display.flip()
