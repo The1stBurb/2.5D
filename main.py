@@ -18,6 +18,13 @@ class pygameBases:
         return tinted
     def resize(self,img,w,h):
         return pygame.transform.scale(img,(w,h))
+    def blur(self,image,amount):
+        scale = 1.0 / float(amount)
+        surf_size = image.get_size()
+        scale_size = (int(surf_size[0] * scale), int(surf_size[1] * scale))
+        surf = pygame.transform.smoothscale(image, scale_size)
+        surf = pygame.transform.smoothscale(surf, surf_size)
+        return surf
     def rot90(self,img,r=-1):
         if r==-1:
             r=randint(0,3)*90
@@ -45,10 +52,10 @@ class blok:
         self.sz=sz
         self.szDisp=0.75
 block=blok(80)
-tops=[pb.imgGit("images\\tops\\grass.png",block.sz,block.sz),pb.imgGit("images\\tops\\stone_path.png",block.sz,block.sz),pb.imgGit("images\\tops\\water.png",block.sz,block.sz),]
+tops=[pb.imgGit("images\\tops\\grass.png",block.sz,block.sz),pb.imgGit("images\\tops\\stone_path.png",block.sz,block.sz),pb.imgGit("images\\tops\\water.png",block.sz,block.sz),pb.imgGit("images\\tops\\air.png",block.sz,block.sz),]
 walls=[pb.imgGit("images\\walls\\dirt.png",block.sz,block.sz*block.szDisp),]
 blank=pb.imgGit("images\\blank.png",block.sz,block.sz)
-shift=[tops[0],walls[0],tops[1],blank,tops[2],blank,blank,blank]
+shift=[tops[0],walls[0],tops[1],blank,tops[2],blank,blank,blank,tops[3],blank]
 # while True:
 #     scrn.fill((200,200,200))
 #     # mbt=1
