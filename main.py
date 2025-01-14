@@ -19,6 +19,8 @@ class pygameBases:
     def resize(self,img,w,h):
         return pygame.transform.scale(img,(w,h))
     def blur(self,image,amount):
+        if amount==0:
+            return image
         scale = 1.0 / float(amount)
         surf_size = image.get_size()
         scale_size = (int(surf_size[0] * scale), int(surf_size[1] * scale))

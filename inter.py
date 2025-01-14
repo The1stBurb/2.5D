@@ -8,7 +8,7 @@
 from main import pb,shift,block,pygame
 from random import randint,seed
 def noise(x, y, seed=0):
-    seed(seed)
+    # seed(seed)
     return ((x * 1234567 + y * 7654321 + seed * 9876543) & 0xFFFFFF) / 0xFFFFFF
 class levelCrafter:
     def __init__(self):
@@ -51,7 +51,7 @@ class levelCrafter:
                 # comboSrfce=pygame.Surface((block.sz*len(self.pure[0][y]),block.sz))
                 for x,j in enumerate(self.pure[compute][y]):
                     # print(j)
-                    newSrfce.blit(pb.blur(shift[j],seed(x,y)*0),(x*block.sz,y*block.sz))
+                    newSrfce.blit(pb.blur(shift[j],noise(x,y)),(x*block.sz,y*block.sz))
                 # newSrfce.blit(comboSrfce,(0,y*block.sz))
                 # break
             pygame.image.save(newSrfce,f"images\\levels\\level{compute+1}.png")
