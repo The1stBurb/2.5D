@@ -35,7 +35,7 @@ class pygameBases:
         return pygame.image.load(path).convert_alpha()
     def imgGit(self,path,w,h):
         return self.resize(self.gitImg(path),w,h)
-    def fill(r,g=-1,b=0):
+    def fill(self,r,g=-1,b=0):
         if g==-1:
             b=g=r
         self.colour=(r,g,b)
